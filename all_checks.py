@@ -24,6 +24,10 @@ def check_root_full():
     """Returns True if the root partition is full, False otherwise."""
     return check_disk_full(disk="/", min_gb=2, min_percent=10)
 
+def check_cpu_constrained():
+    """Returns True if the cpu is having too much usage, False otherwise"""
+    return psutil.cpu_percent(1) > 75
+
 def check_no_network():
     """Returns True if it fails to resolve Google's URL, False otherwise."""
     try:
@@ -36,6 +40,7 @@ def main():
     checks=[
         (check_reboot, "Pending Reboot"),
         (check_root_full, "Root partition full"),
+        (check_cpu_constrained, "CPU load too high")
         (check_no_network, "No working network"),
     ]
     everything_ok = True
