@@ -21,9 +21,11 @@ def storage_usage():
     du = shutil.disk_usage("/")
     # Calculate the percentage of free space
     percent_used = 100 * du.used / du.total
+    gb_used = du.used / 2**30
     percent_free = 100 * du.free / du.total
+    gb_free = du.free / 2**30
     total_gb = du.total / 2**30
-    return f'Storage % used: {percent_used}\nStorage % free: {percent_free}\nTotal: {total_gb}gb'
+    return f'Storage % used: {percent_used}\nUsed: {gb_used} gb\nStorage % free: {percent_free}\nFree: {gb_free} gb\nTotal: {total_gb} gb'
 
 def main():
     vitals = [
