@@ -25,7 +25,7 @@ def storage_usage():
     percent_free = 100 * du.free / du.total
     gb_free = du.free / 2**30
     total_gb = du.total / 2**30
-    return f'Storage % used: {percent_used}\nUsed: {gb_used} gb\n\nStorage % free: {percent_free}\nFree: {gb_free} gb\n\nTotal: {total_gb} gb'
+    return f'Storage % used: {percent_used}\nGB Used: {gb_used} gb\n\nStorage % free: {percent_free}\nGB Free: {gb_free} gb\n\nTotal GB: {total_gb} gb'
 
 def main():
     vitals = [
